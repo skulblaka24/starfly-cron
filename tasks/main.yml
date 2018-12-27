@@ -1,0 +1,18 @@
+---
+# tasks file for automated_tasks
+
+- name: Configuration rc.local
+  template:
+    src: ./files/rc.local.j2
+    dest: /etc/rc.local
+    owner: root
+    group: root
+    mode: '0755'
+
+# Va être enlever par la tâches de cleanup
+# - name: Tâches de lancement d'alfred automatique au redémarrage
+#   cron:
+#     name: "Tâches de lancement d'alfred automatique au redémarrage"
+#     special_time: reboot
+#     job: "docker-compose -f /opt/lab/alfredbrain/docker-compose.yml up -d"
+#     user: root
